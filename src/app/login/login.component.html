@@ -1,0 +1,59 @@
+<div class="login-box">
+  <div class="logo">
+    <a href="javascript:void(0);">Fleet<b>SS</b></a>
+    <small>Sistema de gestão para cooperativas de motociclistas</small>
+  </div>
+  <div class="card">
+    <div class="body">
+      <form id="sign_in" method="POST">
+        <div class="msg">Informe os dados para iniciar a sessão</div>
+        <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">person</i>
+                        </span>
+          <div class="form-line">
+            <input
+              type="text"
+              class="form-control"
+              name="usuario"
+              [(ngModel)]="usuario.login"
+              [value]="loginValidar"
+              placeholder="Nome de usuário"
+              required
+              autofocus>
+          </div>
+        </div>
+        <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+          <div class="form-line">
+            <input type="password" class="form-control" name="senha" [(ngModel)]="usuario.senha" placeholder="Senha" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <button class="btn btn-block bg-indigo waves-effect" type="submit" (click)="fazerLogin()">ENTRAR</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="text-center" *ngIf="autenticando">
+    <div class="demo-preloader">
+      <div class="preloader pl-size-xl">
+        <div class="spinner-layer pl-white">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h4 style="color: white">Autenticando...</h4>
+  </div>
+
+</div>

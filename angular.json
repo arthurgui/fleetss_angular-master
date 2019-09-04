@@ -1,0 +1,152 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "fleetss": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "targets": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/fleetss",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css",
+              "node_modules/adminbsb-materialdesign/plugins/bootstrap/css/bootstrap.css",
+              "node_modules/adminbsb-materialdesign/plugins/node-waves/waves.css",
+              "node_modules/adminbsb-materialdesign/plugins/animate-css/animate.css",
+              "node_modules/adminbsb-materialdesign/plugins/morrisjs/morris.css",
+              "node_modules/adminbsb-materialdesign/css/style.css",
+              "node_modules/adminbsb-materialdesign/css/themes/all-themes.css"
+            ],
+            "scripts": [
+              "node_modules/adminbsb-materialdesign/plugins/jquery/jquery.min.js",
+              "node_modules/adminbsb-materialdesign/plugins/bootstrap/js/bootstrap.js",
+              "node_modules/adminbsb-materialdesign/plugins/bootstrap-select/js/bootstrap-select.js",
+              "node_modules/adminbsb-materialdesign/plugins/jquery-slimscroll/jquery.slimscroll.js",
+              "node_modules/adminbsb-materialdesign/plugins/node-waves/waves.js",
+              "node_modules/adminbsb-materialdesign/plugins/jquery-countto/jquery.countTo.js",
+              "node_modules/adminbsb-materialdesign/plugins/raphael/raphael.min.js",
+              "node_modules/adminbsb-materialdesign/plugins/morrisjs/morris.js",
+              "node_modules/adminbsb-materialdesign/plugins/chartjs/Chart.bundle.js",
+              "node_modules/adminbsb-materialdesign/plugins/flot-charts/jquery.flot.js",
+              "node_modules/adminbsb-materialdesign/plugins/flot-charts/jquery.flot.resize.js",
+              "node_modules/adminbsb-materialdesign/plugins/flot-charts/jquery.flot.pie.js",
+              "node_modules/adminbsb-materialdesign/plugins/flot-charts/jquery.flot.categories.js",
+              "node_modules/adminbsb-materialdesign/plugins/flot-charts/jquery.flot.time.js",
+              "node_modules/adminbsb-materialdesign/plugins/jquery-sparkline/jquery.sparkline.js",
+              "node_modules/adminbsb-materialdesign/js/admin.js",
+              "node_modules/adminbsb-materialdesign/js/pages/index.js",
+              "node_modules/adminbsb-materialdesign/js/demo.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "fleetss:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "fleetss:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "fleetss:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "karmaConfig": "src/karma.conf.js",
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "fleetss-e2e": {
+      "root": "e2e/",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "fleetss:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "fleetss:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "fleetss"
+}
